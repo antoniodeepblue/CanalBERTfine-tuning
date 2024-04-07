@@ -1,6 +1,6 @@
 ---
-title: BERTfinetuningContextoPredefinido
-emoji: ⚡
+title: Modelo Canal Question And Answer BERTfinetuning Contexto predefinido
+emoji: 💧
 colorFrom: red
 colorTo: purple
 sdk: gradio
