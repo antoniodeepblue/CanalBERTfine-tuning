@@ -20,16 +20,28 @@ def answer_question(question):
     """
     # Obtener la respuesta del modelo
     result = nlp(question=question, context=context)
-    # Retornar la respuesta encontrada
-    return result['answer']
+
+    # Verificar si la respuesta supera un cierto score de confianza
+    if result["score"] > 0.3:
+       # Verificar si se encontró una respuesta
+       if result['answer']:  # Si la respuesta no está vacía
+           # Retornar la respuesta encontrada
+           return result['answer']
+       else:
+           # Devolver un mensaje indicando que la pregunta debe ser reformulada
+           return "Lo siento, no pude encontrar una respuesta para tu pregunta. Por favor, reformula tu pregunta."
+
+    else:
+       # Devolver un mensaje indicando que la pregunta debe ser reformulada
+       return "Lo siento, no estoy seguro de la respuesta. Por favor, reformula tu pregunta."
 
 # Definir la interfaz Gradio
 iface = gr.Interface(fn=answer_question,
                      inputs= gr.Textbox(label="Question", placeholder="Escribe tu pregunta aquí...", scale=7),
                      outputs=gr.Textbox(label="Answer"),
                      theme="soft",
-                     title="Preguntas y Respuestas BERTfinetuning con contexto predefinido",
-                     description='Autor: <a href=\"https://huggingface.co/Antonio49\">Antonio Fernández</a> de <a href=\"https://www.canaldeisabelsegunda.es/\">Canal de Isabel II</a>. Formación: <a href=\"https://www.uoc.edu/es/\">Grado Ingeniería Informática</a> Aplicación desarrollada para TFG'"   Proporcione una pregunta y el asistente encontrará la respuesta.")
+                     title="BERT_fine-tuning: Preguntas y Respuestas del Canal de Isabel II",
+                     description='Autor: <a href=\"https://huggingface.co/Antonio49\">Antonio Fernández</a> de <a href=\"https://www.canaldeisabelsegunda.es/\">Canal de Isabel II</a>. Formación: <a href=\"https://www.uoc.edu/es/\">Grado Ingeniería Informática</a> Aplicación desarrollada para TFG_Inteligencia_Artificial.'"   Proporcione una pregunta y el asistente encontrará la respuesta.")
 
 if __name__ == "__main__":
     # Lanzar la interfaz
