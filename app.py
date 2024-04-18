@@ -20,7 +20,7 @@ def answer_question(question):
     result = nlp(question=question, context=context)
 
     # Verificar si la respuesta supera un cierto score de confianza
-    if result["score"] > 0.3:
+    if result["score"] > 0.1:
        # Verificar si se encontró una respuesta
        if result['answer']:  # Si la respuesta no está vacía
            # Retornar la respuesta encontrada
