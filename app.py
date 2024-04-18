@@ -16,6 +16,10 @@ context = "Averías: En primer lugar, averigua si la falta de agua afecta a todo
 
 # Función para responder preguntas dadas una pregunta y un contexto predefinido
 def answer_question(question):
+    
+    # Convertir la pregunta a minúsculas
+    question = question.lower()
+    
     # Obtener la respuesta del modelo
     result = nlp(question=question, context=context)
 
