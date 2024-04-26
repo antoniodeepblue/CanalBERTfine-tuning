@@ -24,14 +24,14 @@ def answer_question(question):
     result = nlp(question=question, context=context)
 
     # Verificar si la respuesta supera un cierto score de confianza
-    if result["score"] > 0.1:
+    if result["score"] > 0.79:
        # Verificar si se encontró una respuesta
        if result['answer']:  # Si la respuesta no está vacía
            # Retornar la respuesta encontrada
            return result['answer']
        else:
            # Devolver un mensaje indicando que la pregunta debe ser reformulada
-           return "Lo siento, no pude encontrar una respuesta para tu pregunta. Por favor, reformula tu pregunta."
+           return "Lo siento, no pude encontrar una respuesta para tu pregunta. Por favor, reformula tu pregunta sobre Averías o Contacto."
     else:
        # Devolver un mensaje indicando que la pregunta debe ser reformulada
        return "Lo siento, no estoy seguro de la respuesta. Por favor, reformula tu pregunta."
