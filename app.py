@@ -34,7 +34,7 @@ def answer_question(question):
            return "Lo siento, no pude encontrar una respuesta para tu pregunta. Por favor, reformula tu pregunta sobre Averías o Contacto."
     else:
        # Devolver un mensaje indicando que la pregunta debe ser reformulada
-       return "Lo siento, no estoy seguro de la respuesta. Por favor, reformula tu pregunta."
+       return "Lo siento, no estoy seguro de la respuesta. Por favor, reformula tu pregunta sobre Averías o Contacto.."
 
 # Definir la interfaz Gradio
 iface = gr.Interface(fn=answer_question,
