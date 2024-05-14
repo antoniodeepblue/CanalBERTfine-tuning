@@ -4,7 +4,7 @@ from transformers import AutoModelForQuestionAnswering, AutoTokenizer, pipeline
 import gradio as gr
 
 # Cargar el modelo y el tokenizador
-model_name ='Antonio49/Personal'
+model_name ='Antonio49/ModeloCanal'
 model = AutoModelForQuestionAnswering.from_pretrained(model_name)
 tokenizer = AutoTokenizer.from_pretrained(model_name)
 
